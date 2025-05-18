@@ -9,6 +9,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import java.util.List;
 
 @Data
 @Builder
@@ -23,6 +28,10 @@ public class Category {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false)
-    private Long wordId;
+    @ManyToOne
+    @JoinColumn(name = "word_id", nullable = false)
+    private Word word;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Meaning> meanings;
 }

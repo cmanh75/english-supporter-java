@@ -1,13 +1,15 @@
 package com.service;
 
-import com.entity.Word;
-import com.dto.WordRequest;
+import com.model.WordModel;
+import com.dto.AddWordRequest;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public interface WordService {
-    Word getWord(String text);
-    Word addWord(WordRequest request);
-    Word updateWord(Long id, WordRequest request);
-    void deleteWord(Long id);
-    List<Word> getAllWord();
+    WordModel getWord(String text);
+    WordModel addWord(AddWordRequest request);
+    void deleteWord(String text);
+    List<WordModel> getAllWords();
 }

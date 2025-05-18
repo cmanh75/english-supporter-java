@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Data
 @Builder
@@ -20,8 +22,9 @@ public class Example {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
-    private Long definitionId;
+    @ManyToOne
+    @JoinColumn(name = "eng_definition_id")
+    private EngDefinition engDefinition;
 
     @Column(nullable = false)
     private String example;

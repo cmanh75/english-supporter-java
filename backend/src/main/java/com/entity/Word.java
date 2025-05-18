@@ -9,6 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import java.util.List;
 
 @Data
 @Builder
@@ -25,6 +28,12 @@ public class Word {
 
     @Column(nullable = false)
     private String type;
+
+    @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EngDefinition> engDefinitions;
+
+    @OneToMany(mappedBy = "word", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Category> categories;
 
     @Column(nullable = false)
     private String pronunciation;

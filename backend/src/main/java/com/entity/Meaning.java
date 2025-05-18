@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Data
 @Builder
@@ -23,6 +25,7 @@ public class Meaning {
     @Column(nullable = false, unique = true)
     private String meaning;
 
-    @Column(nullable = false)
-    private Long categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
