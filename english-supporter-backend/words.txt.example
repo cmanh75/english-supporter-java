@@ -1,0 +1,15 @@
+# Example word list file
+# One word per line
+# Lines starting with # are comments and will be ignored
+
+hello
+world
+test
+example
+computer
+programming
+spring
+boot
+java
+
+

@@ -1,0 +1,27 @@
+# Alternative YAML configuration (if preferred over .properties)
+spring:
+  application:
+    name: english-supporter-backend
+  datasource:
+    url: jdbc:mariadb://localhost:3306/english_supporter
+    username: root
+    password: root
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.englishsupporter: DEBUG
+    org.springframework.web: INFO
+    org.hibernate: INFO
+
